@@ -23,3 +23,24 @@ class OnMainPage extends PageState {
   @override
   List<Object> get props => [];
 }
+
+class OnRegristasionPage extends PageState {
+  @override
+  final RegristasionData regristasionData;
+  OnRegristasionPage(this.regristasionData);
+  List<Object> get props => [];
+}
+
+class OnPreferencePage extends PageState {
+  @override
+  final RegristasionData regristasionData;
+  OnPreferencePage(this.regristasionData);
+  List<Object> get props => [];
+}
+
+class OnAccountConfirmasionPage extends PageState {
+  @override
+  final RegristasionData regristasionData;
+  OnAccountConfirmasionPage(this.regristasionData);
+  List<Object> get props => [];
+}

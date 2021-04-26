@@ -37,9 +37,12 @@ class MoviePAGE extends StatelessWidget {
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
                                     image: (userState.user.profilPicture == ""
-                                        ? NetworkImage(
-                                            userState.user.profilPicture)
-                                        : AssetImage("assets/user_pic.png")),
+                                        ? AssetImage("assets/user_pic.png")
+                                        : (NetworkImage == null
+                                            ? NetworkImage(
+                                                userState.user.profilPicture)
+                                            : AssetImage(
+                                                "assets/user_pic.png"))),
                                     fit: BoxFit.cover)),
                           )
                         ],
@@ -49,12 +52,28 @@ class MoviePAGE extends StatelessWidget {
                       width: 16,
                     ),
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Text(
-                          userState.user.name,
-                          style: whiteTextFont.copyWith(fontSize: 18),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width -
+                              2 * defaultMargin -
+                              78,
+                          child: Text(
+                            userState.user.name,
+                            style: whiteTextFont.copyWith(fontSize: 18),
+                            maxLines: 1,
+                            overflow: TextOverflow.clip,
+                          ),
                         ),
-                        Text("")
+                        Text(
+                          NumberFormat.currency(
+                                  locale: "id_ID",
+                                  decimalDigits: 0,
+                                  symbol: "IDR")
+                              .format(userState.user.balance),
+                          style: yellowNumberFont.copyWith(
+                              fontSize: 14, fontWeight: FontWeight.w400),
+                        ),
                       ],
                     )
                   ],
