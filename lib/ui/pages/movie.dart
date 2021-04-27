@@ -36,13 +36,12 @@ class MoviePAGE extends StatelessWidget {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 image: DecorationImage(
-                                    image: (userState.user.profilPicture == ""
-                                        ? AssetImage("assets/user_pic.png")
-                                        : (NetworkImage == null
-                                            ? NetworkImage(
-                                                userState.user.profilPicture)
-                                            : AssetImage(
-                                                "assets/user_pic.png"))),
+                                    image: (userState.user.profilPicture !=
+                                                null &&
+                                            userState.user.profilPicture != ""
+                                        ? NetworkImage(
+                                            userState.user.profilPicture)
+                                        : AssetImage("assets/user_pic.png")),
                                     fit: BoxFit.cover)),
                           )
                         ],
